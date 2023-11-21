@@ -51,13 +51,27 @@ for category_list in category_lists:
         else:
             result_dict[color_type].append(f"clr_{color_type}_{i}")
 
-# empty tuples
-empty_tube_count = 2
-empty_tubes = [f"empty_tup_{i}" for i in range(1, empty_tube_count + 1)]
+
 
 # tuples for each color variable (one to four)
-final_tubes = list(result_dict.values()) + [empty_tubes]
+#final_tubes = list(result_dict.values()) + [empty_tubes]
+final_tubes = [result_dict.get(i, []) for i in range(1, 13)]
+
+# empty tuples
+final_tubes.append([[] for _ in range(4)])
+final_tubes.append([[] for _ in range(4)])
+#empty_tube_count = 2
+#empty_tubes = [[] for _ in range(empty_tube_count)]
+
+# adding empty tuples
+"""
+for i in range(empty_tube_count):
+    final_tubes.append([[] for _ in range(4)])
+"""
+
+
 
 # the result
 for i, final_tube in enumerate(final_tubes, start=1):
     print(f"Tup_{i}: {final_tube}")
+
