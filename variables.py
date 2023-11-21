@@ -1,4 +1,4 @@
-colors = ["pm", "ay", "sr", "kr", "kv", "gr", "mo", "yy", "ky", "lc", "mv", "gr"]
+colors = ["pm", "ay", "sr", "kr", "kv", "gr", "mo", "yy", "ky", "lc", "mv", "tt"]
 
 # color variables defined
 clr_1="pm"
@@ -12,7 +12,7 @@ clr_8="yy"
 clr_9="ky"
 clr_10="lc"
 clr_11="mv"
-clr_12="gr"
+clr_12="tt"
 
 # Tubes were defined by reference to the .txt file
 tup_1 = ["pm", "ay", "sr", "kr"]
@@ -20,13 +20,13 @@ tup_2 = ["kv", "gr", "mo", "yy"]
 tup_3 = ["mo", "kr", "ky", "sr"]
 tup_4 = ["lc", "mv", "kv", "sr"]
 tup_5 = ["ay", "kr", "lc", "ky"]
-tup_6 = ["gr", "kr", "yy", "tr"]
+tup_6 = ["gr", "kr", "yy", "tt"]
 tup_7 = ["gr", "lc", "pm", "mo"]
-tup_8 = ["ky", "tr", "yy", "kv"]
+tup_8 = ["ky", "tt", "yy", "kv"]
 tup_9 = ["ay", "lc", "yy", "kv"]
-tup_10 = ["ky", "ay", "tr", "pm"]
+tup_10 = ["ky", "ay", "tt", "pm"]
 tup_11 = ["gr", "mv", "sr", "pm"]
-tup_12 = ["mv", "mv", "tr", "mo"]
+tup_12 = ["mv", "mv", "tt", "mo"]
 tup_13 = []  # empty tuple
 tup_14 = []  # empty tuple
 
