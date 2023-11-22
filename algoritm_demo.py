@@ -41,7 +41,7 @@ class ColoredWater:
         out[idx_from], out[idx_to] = out[idx_to], out[idx_from]
         return ColoredWater(out)
 
-    def isgoal(self):
+    def is_goal(self):
         return np.array_equiv(self.pos, self.pos[0])
 
     def __iter__(self):
@@ -66,16 +66,23 @@ class ColoredWater:
         return frozenset(map(tuple, self.pos.T))
 
     def __repr__(self):
-        return repr(self.pos)
+        rows, cols = self.pos.shape
+        output = ""
+        for i in range(rows):
+            output += "| "
+            for j in range(cols):
+                output += f"{self.pos[i, j]:2} "
+            output += "|\n"
+        return output
 
     @classmethod
-    def solve(cls, pos, depthFirst=False):
+    def solve(cls, pos, depth_first=False):
         queue = deque([pos])
         trail = {pos.set_rep(): None}
         solution = deque()
-        load = queue.append if depthFirst else queue.appendleft
+        load = queue.append if depth_first else queue.appendleft
 
-        while not pos.isgoal():
+        while not pos.is_goal():
             for m in pos:
                 if m.set_rep() in trail:
                     continue
@@ -89,11 +96,14 @@ class ColoredWater:
 
         return list(solution)
 
-# Kullanım örneği
+# Usage example
 initial_state = np.array([[0, 1, 0, 5, 8, 9, 7, 4, 2, 8, 2, 5, 5, 10, 12],
                           [0, 2, 0, 6, 3, 10, 9, 7, 11, 3, 11, 12, 3, 6, 13],
                           [0, 3, 0, 7, 4, 2, 11, 11, 6, 12, 12, 13, 1, 13, 1],
                           [0, 4, 0, 5, 9, 9, 7, 6, 8, 8, 13, 1, 4, 10, 10]])
 
 initial_game = ColoredWater(initial_state)
-solution = ColoredWater.solve(initial_game, depthFirst=True)
+solution = ColoredWater.solve(initial_game, depth_first=True)
+
+for step, state in enumerate(solution):
+    print(f"Step {step + 1}:\n{state}\n")
