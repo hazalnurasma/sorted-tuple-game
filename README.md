@@ -29,5 +29,7 @@ The core idea while we develop our algorithm is that we need very few things to 
 
 3)We need to recognize the goal state.
 
+**You can reach the final version of this project to algorithm_4_working.py file.**
+
 
 
