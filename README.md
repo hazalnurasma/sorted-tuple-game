@@ -21,7 +21,7 @@ As a basis, the method of Raymond Hettinger's Generic Puzzle Solver is used by d
 ![image](https://github.com/hazalnurasma/sorted-tuple-game/assets/16530226/df61f0c7-a6fd-4fd6-99a7-822d88d11b2f)
 
 
-The core idea while we develop our algorithm is that we need very few things to describe the puzzle in a way that a solver can find a solution:
+The core idea used in the taken algorithm is that we need very few things to describe the puzzle in a way that a solver can find a solution:
 
 1)We need an initial position (the unsolved puzzle)
 
