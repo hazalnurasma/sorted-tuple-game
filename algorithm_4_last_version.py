@@ -79,7 +79,7 @@ class ColoredWater:
         idx_to = (self.get_last_zero_index(self.pos[:, j]), j)
         out[idx_from], out[idx_to] = out[idx_to], out[idx_from]
 
-        move_description = f"{i + 1}. stack's '{self.pos[idx_from]}', moved to {j + 1}. stack"
+        move_description = f"{i + 1}. bottle's '{self.pos[idx_from]}', moved to {j + 1}. bottle"
 
         return ColoredWater(out)
 
@@ -108,7 +108,7 @@ class ColoredWater:
         legal_moves = tuple(map(self.get_legal_moves_to, moveable_to))
 
         out = [(self.swap(origin, target),
-                f"{origin + 1}. stack's '{self.pos[:, origin][self.get_first_non_zero_index(self.pos[:, origin])]}', moved to {target + 1}. stack")
+                f"{origin + 1}. bottle's '{self.pos[:, origin][self.get_first_non_zero_index(self.pos[:, origin])]}', moved to {target + 1}. bottle")
                for origins, target in legal_moves
                for origin in origins]
 
@@ -186,13 +186,13 @@ class ColoredWater:
     """
 
 # Usage example
-initial_state = np.array([[1, 5, 2, 2, 9, 12, 6, 8, 8, 4, 4, 6, 0, 0],
-                           [2, 6, 9, 8, 11, 5, 4, 5, 5, 12, 2, 12, 0, 0],
-                           [3, 7, 1, 10, 1, 1, 11, 12, 11, 3, 10, 10, 0, 0],
-                           [4, 8, 6, 11, 3, 7, 7, 9, 3, 9, 7, 10, 0, 0]])
+initial_state = np.array([[ 4, 8, 6, 11, 3, 7, 7, 9, 3, 9, 7, 10, 0, 0],
+                       [ 3, 7, 1, 10, 1, 1, 11, 12, 11, 3, 10, 10, 0, 0],
+                       [ 2, 6, 9, 8, 11, 5, 4, 5, 5, 12, 2, 12, 0, 0],
+                       [ 1, 5, 2, 2, 9, 12, 6, 8, 8, 4, 4, 6, 0, 0]])
 
 initial_game = ColoredWater(initial_state)
-solution = ColoredWater.solve(initial_game, depth_first=True)
+solution = ColoredWater.solve(initial_game, depth_first=False)
 
 for step, (state, move_description) in enumerate(solution):
     print(f"Step {step + 1}:\n{state}\nMove: {move_description}\n")
